@@ -1,6 +1,6 @@
 # TICKET-008: v1 rule-based confidence classifier
 
-**Status:** todo
+**Status:** done
 **Branch:** `feat/TICKET-008-rule-based-classifier`
 **Depends on:** TICKET-007
 
@@ -40,7 +40,7 @@ def signals_to_vector(signals: dict) -> list[float]:
     Used by v1 (for readability/testing) and v2 (model input)."""
 ```
 
-`FEATURE_NAMES` (10 features, all derived from the TICKET-007 `signals`
+`FEATURE_NAMES` (13 features, all derived from the TICKET-007 `signals`
 dict):
 ```
 has_registry_name, has_listing_name, has_enrichment_email,
@@ -108,8 +108,20 @@ just bucket checks):
 | Coastal Breeze Pool Service | 2 | has_conflict=True | reduced by 25 vs. no-conflict baseline | True |
 | Redwood Cabinetry (no data) | 0 | — | 0, "cannot_verify" | True |
 
+## Acceptance criteria
+
+- [x] `pytest contact-finder/tests/test_classifiers.py -v` passes (14
+      tests: feature-vector unit tests, isolated weight/penalty/clamping
+      unit tests on hand-built `signals` dicts, the 6 TDD-table companies
+      via real `fuse()` -> `score()` with exact-value assertions, and a
+      full 30-row sweep)
+- [x] Full suite (`pytest contact-finder/tests/ -v`) passes: 50/50
+- [x] All 6 TDD-table cases match their hand-computed scores exactly
+      (95, 100, 0, 40, 25, 0)
+
 ## Decisions to record
 
-- ADR-0004: full weight table above with rationale for each weight/penalty,
+- [x] ADR-0004: full weight table above with rationale for each weight/penalty,
   why `enrichment_provider_confidence` is NOT summed directly into our score,
-  and why `sources_count == 0` short-circuits.
+  and why `sources_count == 0` short-circuits. See
+  [`contact-finder/docs/decisions/0004-rule-based-classifier-weights.md`](../contact-finder/docs/decisions/0004-rule-based-classifier-weights.md).

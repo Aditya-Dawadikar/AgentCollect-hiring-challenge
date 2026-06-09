@@ -28,7 +28,7 @@ committed for Stage A). Legacy tickets are left untouched.
 - [x] [TICKET-005](tickets/TICKET-005-project-scaffolding-data-layer.md) — Project scaffolding & data layer
 - [x] [TICKET-006](tickets/TICKET-006-name-email-phone-matchers.md) — Name / email / phone matching strategies
 - [x] [TICKET-007](tickets/TICKET-007-signal-fusion-conflict-resolution.md) — Signal fusion & conflict resolution
-- [ ] [TICKET-008](tickets/TICKET-008-rule-based-classifier.md) — v1 rule-based confidence classifier
+- [x] [TICKET-008](tickets/TICKET-008-rule-based-classifier.md) — v1 rule-based confidence classifier
 - [ ] [TICKET-009](tickets/TICKET-009-decision-tree-classifier.md) — v2 decision-tree classifier
 - [ ] [TICKET-010](tickets/TICKET-010-evaluation-framework.md) — Evaluation framework (precision/recall/F1)
 - [ ] [TICKET-011](tickets/TICKET-011-pipeline-output-formatter-readme.md) — Full pipeline, output formatter, README
@@ -41,7 +41,7 @@ Each ticket links the ADR(s) it produces. Index kept up to date here:
 - [x] ADR-0001 — Dependency versions for Python 3.13 (deviating from pinned `requirements.txt` in the original build plan)
 - [x] ADR-0002 — Name normalization & fuzzy-matching threshold
 - [x] ADR-0003 — Source authority & conflict-resolution policy
-- [ ] ADR-0004 — Rule-based (v1) confidence weights
+- [x] ADR-0004 — Rule-based (v1) confidence weights
 - [ ] ADR-0005 — Decision-tree (v2) features, training data, hyperparameters
 - [ ] ADR-0006 — Evaluation methodology (what precision/recall/F1 are computed over, and why)
 - [ ] ADR-0007 — Output schema extensions (provenance fields beyond the minimal spec)
