@@ -25,7 +25,7 @@ committed for Stage A). Legacy tickets are left untouched.
 
 ## Build order (each ticket = one branch off `main`, merged back + pushed on completion)
 
-- [ ] [TICKET-005](tickets/TICKET-005-project-scaffolding-data-layer.md) — Project scaffolding & data layer
+- [x] [TICKET-005](tickets/TICKET-005-project-scaffolding-data-layer.md) — Project scaffolding & data layer
 - [ ] [TICKET-006](tickets/TICKET-006-name-email-phone-matchers.md) — Name / email / phone matching strategies
 - [ ] [TICKET-007](tickets/TICKET-007-signal-fusion-conflict-resolution.md) — Signal fusion & conflict resolution
 - [ ] [TICKET-008](tickets/TICKET-008-rule-based-classifier.md) — v1 rule-based confidence classifier
@@ -38,7 +38,7 @@ committed for Stage A). Legacy tickets are left untouched.
 Written as design decisions are made, in `contact-finder/docs/decisions/`.
 Each ticket links the ADR(s) it produces. Index kept up to date here:
 
-- [ ] ADR-0001 — Dependency versions for Python 3.13 (deviating from pinned `requirements.txt` in the original build plan)
+- [x] ADR-0001 — Dependency versions for Python 3.13 (deviating from pinned `requirements.txt` in the original build plan)
 - [ ] ADR-0002 — Name normalization & fuzzy-matching threshold
 - [ ] ADR-0003 — Source authority & conflict-resolution policy
 - [ ] ADR-0004 — Rule-based (v1) confidence weights
