@@ -1,6 +1,6 @@
 # TICKET-005: Project scaffolding & data layer
 
-**Status:** todo
+**Status:** done
 **Branch:** `feat/TICKET-005-project-scaffolding`
 **Depends on:** none
 
@@ -70,16 +70,17 @@ class MockProviderClient:
 
 ## Acceptance criteria
 
-- [ ] `pytest contact-finder/tests/test_data_sources.py -v` passes
-- [ ] `load_companies()` returns exactly 30 rows matching `companies.csv`
-- [ ] `MockProviderClient.query_all("Cedar Ridge Plumbing LLC")` returns all 3
+- [x] `pytest contact-finder/tests/test_data_sources.py -v` passes
+- [x] `load_companies()` returns exactly 30 rows matching `companies.csv`
+- [x] `MockProviderClient.query_all("Cedar Ridge Plumbing LLC")` returns all 3
       providers populated; `query_all("Redwood Cabinetry")` (a company absent
       from the mocks) returns `{"registry": None, "listing": None,
       "enrichment": None}`
-- [ ] `python run.py` and `python run_evaluation.py` run without error (stubs)
+- [x] `python run.py` and `python run_evaluation.py` run without error (stubs)
 
 ## Decisions to record
 
-- ADR-0001: dependency versions for Python 3.13 (the `requirements.txt` in
+- [x] ADR-0001: dependency versions for Python 3.13 (the `requirements.txt` in
   `INSTRUCTIONS.md` pins `pandas==2.0.3`/`numpy==1.24.3`/`scikit-learn==1.3.0`/
-  `python-Levenshtein==0.21.0`, none of which ship Python 3.13 wheels).
+  `python-Levenshtein==0.21.0`, none of which ship Python 3.13 wheels). See
+  [`contact-finder/docs/decisions/0001-dependency-versions-for-python-3.13.md`](../contact-finder/docs/decisions/0001-dependency-versions-for-python-3.13.md).
