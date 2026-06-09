@@ -1,6 +1,6 @@
 # TICKET-006: Name / email / phone matching strategies
 
-**Status:** todo
+**Status:** done
 **Branch:** `feat/TICKET-006-matchers`
 **Depends on:** TICKET-005
 
@@ -95,10 +95,22 @@ class PhoneMatcher(BaseMatcher):
 | `PhoneMatcher.match` | `"+1-480-555-0133"`, `"+1-480-555-0133"` | `True` (Sunbelt Roofing, listing == enrichment) |
 | `PhoneMatcher.match` | `None`, `"+1-480-555-0133"` | `False` |
 
+## Acceptance criteria
+
+- [x] `pytest contact-finder/tests/test_data_comparison.py -v` passes (14
+      tests covering all TDD cases above plus normalization edge cases)
+- [x] `FuzzyNameMatcher.normalize("Jeff (manager)") == "Jeff"`
+- [x] `FuzzyNameMatcher.match("Robert Kowalski", "Bob Kowalski")` is `False`
+      (documented known limitation, not a bug)
+- [x] `PhoneMatcher.normalize("+1-480-555-0133") == "4805550133"` (country
+      code stripped, 10-digit national number)
+- [x] Full suite (`pytest contact-finder/tests/ -v`) passes: 19/19
+
 ## Decisions to record
 
-- ADR-0002: name normalization rules + why `token_set_ratio` and threshold
+- [x] ADR-0002: name normalization rules + why `token_set_ratio` and threshold
   85, including the known limitation that pure nickname pairs (e.g. "Robert"
   vs "Bob" in Ironclad Welding Shop) are **not** caught by string similarity
   alone, and why we accept that gap for this slice (cross-checked instead via
-  the email-to-name signal in TICKET-007).
+  the email-to-name signal in TICKET-007). See
+  [`contact-finder/docs/decisions/0002-name-normalization-and-fuzzy-threshold.md`](../contact-finder/docs/decisions/0002-name-normalization-and-fuzzy-threshold.md).
