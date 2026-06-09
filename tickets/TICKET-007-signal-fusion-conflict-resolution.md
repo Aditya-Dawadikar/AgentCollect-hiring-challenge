@@ -1,6 +1,6 @@
 # TICKET-007: Signal fusion & conflict resolution
 
-**Status:** todo
+**Status:** done
 **Branch:** `feat/TICKET-007-signal-fusion`
 **Depends on:** TICKET-005, TICKET-006
 
@@ -25,8 +25,10 @@ across **all 18 companies that have mock data**, not just a couple.
 
 - Create: `contact-finder/data_comparison/conflict_resolver.py`
 - Create: `contact-finder/data_comparison/signal_fusion.py`
-- Modify: `contact-finder/tests/test_data_comparison.py` (add fusion +
-  conflict-resolver tests)
+- Create: `contact-finder/tests/test_signal_fusion.py` (fusion +
+  conflict-resolver tests, kept separate from `test_data_comparison.py`
+  since it tests the two new modules created here, mirroring the
+  production module layout)
 
 ## Interface contract
 
@@ -122,14 +124,31 @@ these representative rows:
 | Harbor Light Electric | `name_sources_agree=True` ("Sean Murphy" vs "S. Murphy"), `sources_count=2`, no enrichment |
 | Coastal Breeze Pool Service | `has_conflict=True`, conflicts contains the Tina Alvarez / Marcus Webb mismatch |
 | Sunbelt Roofing Co | `phone_sources_agree=True`, `has_listing_name=False` |
-| Lakeside Auto Glass | `candidate_name="Jeff"` derived from enrichment email, `email_matches_name=True`, `generic_email=False` |
+| Lakeside Auto Glass | `candidate_name="Jeff"` (from listing's `"Jeff (manager)"`, normalized), `email_matches_name=True` (corroborated by `jeff@lakesideglass.net`), `generic_email=False` |
 | Riverside Print & Sign | `sources_count=1`, `generic_email=True`, `enrichment_provider_confidence=41` |
 | Northgate HVAC Services | `has_registry_name=True`, `role_is_decision_maker=False` ("Registered Agent") |
 | Redwood Cabinetry (absent) | `sources_count=0`, all `has_*` False, `candidate_name=None` |
 
+## Acceptance criteria
+
+- [x] `pytest contact-finder/tests/test_signal_fusion.py -v` passes (15
+      tests: 4 `ConflictResolver` tests, 9 representative-company `fuse()`
+      tests from the TDD table above, 1 nickname-conflict cascade test for
+      Ironclad Welding Shop, 1 full 30-row sweep, plus the
+      Brookside honorific-agreement test and the email-derived-name
+      fallback test using a stub client)
+- [x] Full suite (`pytest contact-finder/tests/ -v`) passes: 36/36
+- [x] `fuse()` runs without error for all 30 companies in
+      `companies.csv` (18 with mock data + 12 with none)
+- [x] `signals` dict has exactly the 13 keys specified above for every
+      company, including the 12 with `sources_count=0`
+
 ## Decisions to record
 
-- ADR-0003: source-authority order (registry > listing for identity),
+- [x] ADR-0003: source-authority order (registry > listing for identity),
   conflict definition (only `name` mismatches are tracked as conflicts —
-  role/phone/email differences are merged, not flagged), and the
-  email-derived-name fallback for contacts with no registry/listing name.
+  role/phone/email differences are merged, not flagged), the
+  email-derived-name fallback for contacts with no registry/listing name
+  (and the Lakeside Auto Glass TDD-table correction above), and the
+  Robert/Bob Kowalski nickname-conflict cascade. See
+  [`contact-finder/docs/decisions/0003-source-authority-and-conflict-resolution.md`](../contact-finder/docs/decisions/0003-source-authority-and-conflict-resolution.md).
