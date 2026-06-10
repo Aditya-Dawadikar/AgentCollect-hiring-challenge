@@ -13,6 +13,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => fake()->company(),
+            'email' => fake()->unique()->companyEmail(),
             'status' => 'active',
         ];
     }
