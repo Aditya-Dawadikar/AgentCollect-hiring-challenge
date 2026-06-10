@@ -22,10 +22,10 @@ class Company extends Model
 
     public function scopeWithStatus($query, ?string $status)
     {
-        if ($status && $status !== 'all') {
-            return $query->where('status', $status);
-        }
-        return $query;
+        return $query->when(
+            $status && $status !== 'all',
+            fn ($query) => $query->where('status', $status)
+        );
     }
 
     public function sequences()
