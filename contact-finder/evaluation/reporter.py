@@ -49,15 +49,20 @@ def write_comparison_report(v1_metrics: dict, v2_metrics: dict, path: str | Path
     lines.append("")
 
     if v1_metrics["precision"] > v2_metrics["precision"]:
-        winner = "v1 (rule-based)"
+        precision_clause = (
+            f"v1 (rule-based) has higher precision "
+            f"(v1={v1_metrics['precision']:.3f}, v2={v2_metrics['precision']:.3f})"
+        )
     elif v2_metrics["precision"] > v1_metrics["precision"]:
-        winner = "v2 (decision tree)"
+        precision_clause = (
+            f"v2 (decision tree) has higher precision "
+            f"(v1={v1_metrics['precision']:.3f}, v2={v2_metrics['precision']:.3f})"
+        )
     else:
-        winner = "v1 and v2 (tied)"
+        precision_clause = f"v1 and v2 are tied on precision (both {v1_metrics['precision']:.3f})"
 
     lines.append(
-        f"Verdict: {winner} has higher precision "
-        f"(v1={v1_metrics['precision']:.3f}, v2={v2_metrics['precision']:.3f}); "
+        f"Verdict: {precision_clause}; "
         f"review rate v1={_review_rate(v1_metrics):.3f}, "
         f"v2={_review_rate(v2_metrics):.3f}, "
         f"ground truth={_ground_truth_review_rate(v1_metrics):.3f}."

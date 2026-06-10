@@ -1,0 +1,31 @@
+company_name,contact_name,contact_role,contact_email_or_phone,confidence_score,classification,source,needs_human_review,source_urls,reason
+Cedar Ridge Plumbing LLC,Daniel Ortega,Owner,d.ortega@cedarridgeplumbing.com,95,high,"registry,listing,enrichment",False,name:registry:mock://registry/ne/cedar-ridge-plumbing|name:listing:mock://listing/cedar-ridge-plumbing|role:registry:mock://registry/ne/cedar-ridge-plumbing|email:enrichment:mock://enrichment/cedar-ridge-plumbing|phone:listing:mock://listing/cedar-ridge-plumbing,Verified via 3 agreeing source(s).
+Bayview Auto Repair,Karen Liu,Owner,karen@bayviewauto.com,80,high,"registry,enrichment",False,name:registry:mock://registry/wa/bayview-auto-repair|role:registry:mock://registry/wa/bayview-auto-repair|email:enrichment:mock://enrichment/bayview-auto-repair|phone:enrichment:mock://enrichment/bayview-auto-repair,Verified via 2 agreeing source(s).
+Sunbelt Roofing Co,,,,15,cannot_verify,"listing,enrichment",True,email:enrichment:mock://enrichment/sunbelt-roofing|phone:listing:mock://listing/sunbelt-roofing|phone:enrichment:mock://enrichment/sunbelt-roofing,Confidence 15 below threshold 70.
+Riverside Print & Sign,,,,0,cannot_verify,enrichment,True,email:enrichment:mock://enrichment/riverside-print-sign,Single weak source with a generic contact email.
+Magnolia Family Dental,,,,10,cannot_verify,listing,True,name:listing:mock://listing/magnolia-family-dental|phone:listing:mock://listing/magnolia-family-dental,Confidence 10 below threshold 70.
+Northgate HVAC Services,,,,35,low,registry,True,name:registry:mock://registry/oh/northgate-hvac|role:registry:mock://registry/oh/northgate-hvac,Confidence 35 below threshold 70.
+Pioneer Landscaping Inc,Maria Gomez,President,maria@pioneerlandscaping.com,100,high,"registry,listing,enrichment",False,name:registry:mock://registry/id/pioneer-landscaping|name:listing:mock://listing/pioneer-landscaping|role:registry:mock://registry/id/pioneer-landscaping|email:enrichment:mock://enrichment/pioneer-landscaping|phone:listing:mock://listing/pioneer-landscaping|phone:enrichment:mock://enrichment/pioneer-landscaping,Verified via 3 agreeing source(s).
+Harbor Light Electric,,,,65,medium,"registry,listing",True,name:registry:mock://registry/ma/harbor-light-electric|name:listing:mock://listing/harbor-light-electric|role:registry:mock://registry/ma/harbor-light-electric|phone:listing:mock://listing/harbor-light-electric,Confidence 65 below threshold 70.
+Summit Pest Control,,,,0,cannot_verify,enrichment,True,email:enrichment:mock://enrichment/summit-pest-control,Single weak source with a generic contact email.
+Greenfield Catering Group,Angela Brooks,Owner,a.brooks@greenfieldcater.com,80,high,"registry,enrichment",False,name:registry:mock://registry/mo/greenfield-catering|role:registry:mock://registry/mo/greenfield-catering|email:enrichment:mock://enrichment/greenfield-catering|phone:enrichment:mock://enrichment/greenfield-catering,Verified via 2 agreeing source(s).
+Lakeside Auto Glass,,,,40,low,"listing,enrichment",True,name:listing:mock://listing/lakeside-auto-glass|email:enrichment:mock://enrichment/lakeside-auto-glass|phone:listing:mock://listing/lakeside-auto-glass,Confidence 40 below threshold 70.
+Ironclad Welding Shop,,,,50,low,"registry,listing,enrichment",True,name:registry:mock://registry/pa/ironclad-welding|name:listing:mock://listing/ironclad-welding|role:registry:mock://registry/pa/ironclad-welding|email:enrichment:mock://enrichment/ironclad-welding|phone:listing:mock://listing/ironclad-welding|phone:enrichment:mock://enrichment/ironclad-welding,Registry and listing disagree on contact identity.
+Coastal Breeze Pool Service,,,,25,cannot_verify,"registry,listing",True,name:registry:mock://registry/fl/coastal-breeze-pool|name:listing:mock://listing/coastal-breeze-pool|role:registry:mock://registry/fl/coastal-breeze-pool|phone:listing:mock://listing/coastal-breeze-pool,Registry and listing disagree on contact identity.
+Redwood Cabinetry,,,,0,cannot_verify,,True,,No data available from any source.
+Anchor Marine Supply,,,,0,cannot_verify,enrichment,True,email:enrichment:mock://enrichment/anchor-marine|phone:enrichment:mock://enrichment/anchor-marine,Single weak source with a generic contact email.
+Desert Sky Solar,,,,0,cannot_verify,,True,,No data available from any source.
+Brookside Veterinary Clinic,Emily Hart,Owner,emily.hart@brooksidevet.com,95,high,"registry,listing,enrichment",False,name:registry:mock://registry/tn/brookside-vet|name:listing:mock://listing/brookside-vet|role:registry:mock://registry/tn/brookside-vet|email:enrichment:mock://enrichment/brookside-vet|phone:listing:mock://listing/brookside-vet,Verified via 3 agreeing source(s).
+Cornerstone Masonry,,,,0,cannot_verify,,True,,No data available from any source.
+Velvet Thread Tailoring,,,,0,cannot_verify,,True,,No data available from any source.
+Frontier Towing & Recovery,,,,0,cannot_verify,,True,,No data available from any source.
+Blue Heron Landscaping,,,,0,cannot_verify,,True,,No data available from any source.
+Ace Mobile Locksmith,,,,0,cannot_verify,,True,,No data available from any source.
+Maple Leaf Bakery,,,,10,cannot_verify,listing,True,phone:listing:mock://listing/maple-leaf-bakery,Confidence 10 below threshold 70.
+Granite Peak Surveying,,,,0,cannot_verify,,True,,No data available from any source.
+Tidewater Plumbing & Heating,George Whitfield,Owner,g.whitfield@tidewaterph.com,80,high,"registry,enrichment",False,name:registry:mock://registry/va/tidewater-plumbing|role:registry:mock://registry/va/tidewater-plumbing|email:enrichment:mock://enrichment/tidewater-plumbing|phone:enrichment:mock://enrichment/tidewater-plumbing,Verified via 2 agreeing source(s).
+Sierra Vista Auto Body,,,,0,cannot_verify,,True,,No data available from any source.
+Hometown Hardware Co,,,,0,cannot_verify,enrichment,True,email:enrichment:mock://enrichment/hometown-hardware,Single weak source with a generic contact email.
+Evergreen Tree Care,,,,0,cannot_verify,,True,,No data available from any source.
+Liberty Sign & Awning,,,,0,cannot_verify,,True,,No data available from any source.
+Crescent Moon Cafe,,,,0,cannot_verify,,True,,No data available from any source.

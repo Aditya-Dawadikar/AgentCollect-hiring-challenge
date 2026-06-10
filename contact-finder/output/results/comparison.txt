@@ -1,0 +1,22 @@
+Contact Finder: v1 (rule-based) vs v2 (decision tree) classifier comparison
+============================================================================
+
+v1 (rule-based)
+---------------
+  Precision: 1.000
+  Recall: 0.750
+  F1: 0.857
+  Classification accuracy (4-bucket): 0.889
+  Confusion (verified=positive): tp=3 fp=0 fn=1 tn=14 n=18
+  Review rate: 0.833
+
+v2 (decision tree)
+------------------
+  Precision: 1.000
+  Recall: 1.000
+  F1: 1.000
+  Classification accuracy (4-bucket): 0.778
+  Confusion (verified=positive): tp=4 fp=0 fn=0 tn=14 n=18
+  Review rate: 0.778
+
+Verdict: v1 and v2 are tied on precision (both 1.000); review rate v1=0.833, v2=0.778, ground truth=0.778.
