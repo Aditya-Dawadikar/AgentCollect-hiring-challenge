@@ -1,7 +1,9 @@
 import pytest
 
 from classification.features import FEATURE_NAMES, signals_to_vector
+from classification.training_data import generate_training_set
 from classification.v1_rule_based import RuleBasedClassifier
+from classification.v2_decision_tree import DecisionTreeConfidenceClassifier
 from data_comparison.conflict_resolver import ConflictResolver
 from data_comparison.email_matcher import EmailMatcher
 from data_comparison.fuzzy_matcher import FuzzyNameMatcher
@@ -46,6 +48,11 @@ def fusion_engine():
 @pytest.fixture
 def classifier():
     return RuleBasedClassifier()
+
+
+@pytest.fixture(scope="module")
+def tree_classifier():
+    return DecisionTreeConfidenceClassifier()
 
 
 # --- features.signals_to_vector -------------------------------------------
@@ -214,3 +221,72 @@ def test_score_runs_for_every_company_without_error(fusion_engine, classifier):
         assert result["classification"] in {"high", "medium", "low", "cannot_verify"}
         assert isinstance(result["needs_human_review"], bool)
         assert result["needs_human_review"] == (result["confidence_score"] < classifier.threshold)
+
+
+# --- training_data.generate_training_set -----------------------------------
+
+def test_generate_training_set_is_deterministic():
+    X1, y1 = generate_training_set(n=400, seed=42)
+    X2, y2 = generate_training_set(n=400, seed=42)
+
+    assert X1 == X2
+    assert y1 == y2
+    assert len(X1) == len(y1) == 400
+
+
+def test_generate_training_set_covers_all_buckets():
+    _, y = generate_training_set(n=400, seed=42)
+
+    assert set(y) == {"high", "medium", "low", "cannot_verify"}
+
+
+def test_generate_training_set_zero_sources_always_cannot_verify():
+    X, y = generate_training_set(n=400, seed=42)
+
+    sources_count_index = FEATURE_NAMES.index("sources_count")
+    for vector, label in zip(X, y):
+        if vector[sources_count_index] == 0:
+            assert label == "cannot_verify"
+
+
+# --- DecisionTreeConfidenceClassifier ---------------------------------------
+
+def test_tree_respects_max_depth(tree_classifier):
+    assert tree_classifier.model.get_depth() <= 4
+
+
+def test_tree_zero_sources_short_circuits(tree_classifier):
+    result = tree_classifier.score(ZERO_SIGNALS)
+    assert result == {
+        "confidence_score": 0,
+        "classification": "cannot_verify",
+        "needs_human_review": True,
+    }
+
+
+def test_tree_cedar_ridge_plumbing_is_verified(fusion_engine, tree_classifier):
+    fc = fusion_engine.fuse("Cedar Ridge Plumbing LLC", "4821 Maple Ave, Lincoln, NE 68504")
+    result = tree_classifier.score(fc.signals)
+
+    assert result["needs_human_review"] is False
+    assert result["classification"] in {"high", "medium"}
+
+
+def test_tree_riverside_print_and_sign_needs_review(fusion_engine, tree_classifier):
+    fc = fusion_engine.fuse("Riverside Print & Sign", "302 W 3rd St, Davenport, IA 52801")
+    result = tree_classifier.score(fc.signals)
+
+    assert result["needs_human_review"] is True
+
+
+def test_tree_score_runs_for_every_company_without_error(fusion_engine, tree_classifier):
+    from data_sources.loader import load_companies
+
+    for company in load_companies():
+        fc = fusion_engine.fuse(company["company_name"], company["mailing_address"])
+        result = tree_classifier.score(fc.signals)
+
+        assert 0 <= result["confidence_score"] <= 100
+        assert result["classification"] in {"high", "medium", "low", "cannot_verify"}
+        assert isinstance(result["needs_human_review"], bool)
+        assert result["needs_human_review"] == (result["confidence_score"] < tree_classifier.threshold)
