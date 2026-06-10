@@ -30,7 +30,7 @@ committed for Stage A). Legacy tickets are left untouched.
 - [x] [TICKET-007](tickets/TICKET-007-signal-fusion-conflict-resolution.md) — Signal fusion & conflict resolution
 - [x] [TICKET-008](tickets/TICKET-008-rule-based-classifier.md) — v1 rule-based confidence classifier
 - [x] [TICKET-009](tickets/TICKET-009-decision-tree-classifier.md) — v2 decision-tree classifier
-- [ ] [TICKET-010](tickets/TICKET-010-evaluation-framework.md) — Evaluation framework (precision/recall/F1)
+- [x] [TICKET-010](tickets/TICKET-010-evaluation-framework.md) — Evaluation framework (precision/recall/F1)
 - [ ] [TICKET-011](tickets/TICKET-011-pipeline-output-formatter-readme.md) — Full pipeline, output formatter, README
 
 ## Decision records (ADRs)
@@ -43,7 +43,7 @@ Each ticket links the ADR(s) it produces. Index kept up to date here:
 - [x] ADR-0003 — Source authority & conflict-resolution policy
 - [x] ADR-0004 — Rule-based (v1) confidence weights
 - [x] ADR-0005 — Decision-tree (v2) features, training data, hyperparameters
-- [ ] ADR-0006 — Evaluation methodology (what precision/recall/F1 are computed over, and why)
+- [x] ADR-0006 — Evaluation methodology (what precision/recall/F1 are computed over, and why)
 - [ ] ADR-0007 — Output schema extensions (provenance fields beyond the minimal spec)
 
 ## Working agreement
