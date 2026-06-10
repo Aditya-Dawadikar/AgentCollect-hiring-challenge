@@ -31,7 +31,7 @@ committed for Stage A). Legacy tickets are left untouched.
 - [x] [TICKET-008](tickets/TICKET-008-rule-based-classifier.md) — v1 rule-based confidence classifier
 - [x] [TICKET-009](tickets/TICKET-009-decision-tree-classifier.md) — v2 decision-tree classifier
 - [x] [TICKET-010](tickets/TICKET-010-evaluation-framework.md) — Evaluation framework (precision/recall/F1)
-- [ ] [TICKET-011](tickets/TICKET-011-pipeline-output-formatter-readme.md) — Full pipeline, output formatter, README
+- [x] [TICKET-011](tickets/TICKET-011-pipeline-output-formatter-readme.md) — Full pipeline, output formatter, README
 
 ## Decision records (ADRs)
 
@@ -44,7 +44,15 @@ Each ticket links the ADR(s) it produces. Index kept up to date here:
 - [x] ADR-0004 — Rule-based (v1) confidence weights
 - [x] ADR-0005 — Decision-tree (v2) features, training data, hyperparameters
 - [x] ADR-0006 — Evaluation methodology (what precision/recall/F1 are computed over, and why)
-- [ ] ADR-0007 — Output schema extensions (provenance fields beyond the minimal spec)
+- [x] ADR-0007 — Output schema extensions (provenance fields beyond the minimal spec)
+
+**Final results** (`contact-finder/output/results/comparison.txt`, n=18):
+v1 (rule-based) precision=1.000, recall=0.750, F1=0.857, review rate=0.833;
+v2 (decision tree) precision=1.000, recall=1.000, F1=1.000, review rate=0.778.
+Both classifiers achieve perfect precision on the ground truth; v2 has higher
+recall (catches "Harbor Light Electric" that v1 scores just under threshold).
+A ~0.78-0.83 review rate is expected: 12/30 companies have zero source data
+and must be reviewed by construction.
 
 ## Working agreement
 

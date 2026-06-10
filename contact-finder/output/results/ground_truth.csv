@@ -1,0 +1,19 @@
+company_name,expected_needs_human_review,expected_classification,rationale
+Redwood Cabinetry,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Desert Sky Solar,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Cornerstone Masonry,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Velvet Thread Tailoring,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Frontier Towing & Recovery,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Blue Heron Landscaping,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Ace Mobile Locksmith,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Granite Peak Surveying,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Sierra Vista Auto Body,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Evergreen Tree Care,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Liberty Sign & Awning,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Crescent Moon Cafe,True,cannot_verify,Absent from enrichment_responses.json; no data from any source.
+Cedar Ridge Plumbing LLC,False,high,"All 3 sources agree on Daniel Ortega / Owner, email matches name."
+Pioneer Landscaping Inc,False,high,"All 3 sources agree on Maria Gomez / President, phone+email corroborate."
+Harbor Light Electric,False,medium,"Registry+listing agree (Sean Murphy / S. Murphy), Owner role, listing phone."
+Greenfield Catering Group,False,medium,"Registry (Angela Brooks/Owner) + enrichment email ""a.brooks@..."" corroborate."
+Riverside Print & Sign,True,cannot_verify,"Single weak enrichment source (confidence 41), generic ""info@"" email."
+Coastal Breeze Pool Service,True,low,"Registry (""Tina Alvarez"") and listing (""Marcus Webb"") name a different person each -- conflict."
