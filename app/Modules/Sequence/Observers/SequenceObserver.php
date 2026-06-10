@@ -9,7 +9,12 @@ class SequenceObserver
 {
     public function updated(Sequence $sequence): void
     {
-        // BUG: This dispatches for ALL sequences, including cancelled ones
+        // Invariant: terminal sequences (cancelled, recovered) never receive
+        // notifications.
+        if ($sequence->isTerminal()) {
+            return;
+        }
+
         NotifySequenceUpdate::dispatch($sequence->id);
     }
 }
