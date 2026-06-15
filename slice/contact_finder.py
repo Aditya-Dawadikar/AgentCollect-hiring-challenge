@@ -3,9 +3,10 @@
 Pipeline: load companies + mock provider data -> resolve identity ->
 resolve contact method -> score -> apply threshold gate -> write output.
 
-See ../PLAN.md for the design rationale and README.md (in this directory)
-for notes on where the implementation adapted the plan once real mock
-shapes were known.
+See ../PLAN.md for the design rationale, DOCUMENTATION.md for the full
+decision criteria (scoring formula, review_reason taxonomy, worked
+examples), and README.md for notes on where the implementation adapted
+the plan once real mock shapes were known.
 """
 
 from __future__ import annotations
@@ -56,6 +57,7 @@ def extract_role_hint(name: str) -> str:
 
 
 def strip_role_hint(name: str) -> str:
+    """Drop a trailing parenthetical role hint, e.g. 'Jeff (manager)' -> 'Jeff'."""
     return ROLE_HINT_RE.sub("", name).strip()
 
 
@@ -76,6 +78,14 @@ def email_matches_name(email: str, name: str) -> bool:
 
 @dataclass
 class Identity:
+    """Resolved contact_name/contact_role, its score contribution, and provenance.
+
+    The `conflicting_*` fields are only populated when `conflict` is True,
+    i.e. registry and listing point at different people. In that case
+    `name`/`role` still hold the (higher-authority) registry identity, while
+    `conflicting_*` records the listing's identity for use in `notes`.
+    """
+
     name: str = ""
     role: str = ""
     base_score: float = 0.0
@@ -88,6 +98,8 @@ class Identity:
 
 @dataclass
 class Contact:
+    """Resolved contact_email_or_phone, its score contribution, and provenance."""
+
     value: str = ""
     base_score: float = 0.0
     source_urls: list[str] = field(default_factory=list)
@@ -184,6 +196,13 @@ def compute_agreement_bonus(registry: dict | None, listing: dict | None, enrichm
 
 
 def score_company(company_name: str, mailing_address: str, mock_record: dict) -> dict:
+    """Run one company through the full pipeline and build its output row.
+
+    Orchestrates identity resolution, contact resolution, agreement bonus,
+    confidence scoring, the threshold gate, and review-reason classification.
+    See DOCUMENTATION.md for the scoring formula and worked examples; this
+    function is the implementation of that spec.
+    """
     registry = mock_record.get("registry")
     listing = mock_record.get("listing")
     enrichment = mock_record.get("enrichment")
@@ -197,9 +216,14 @@ def score_company(company_name: str, mailing_address: str, mock_record: dict) ->
         raw_score -= CONFLICT_PENALTY
     confidence_score = max(0, min(100, round(raw_score)))
 
+    # Gate on score AND on having an actual contact method -- a row can
+    # score high on identity alone (e.g. a confident name with no way to
+    # reach them) but still have nothing usable to hand to a human.
     needs_human_review = confidence_score < CONFIDENCE_THRESHOLD or not contact.value
     contact_value = "" if needs_human_review else contact.value
 
+    # First match wins -- ordered from "nothing to go on" to "right at the
+    # threshold" so each row gets the most specific applicable reason.
     if not (registry or listing or enrichment):
         review_reason = "no_sources"
     elif identity.conflict:
@@ -245,16 +269,23 @@ def score_company(company_name: str, mailing_address: str, mock_record: dict) ->
 
 
 def load_companies(csv_path: Path = COMPANIES_CSV) -> list[dict]:
+    """Load companies.csv rows as dicts with at least company_name/mailing_address."""
     with open(csv_path, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
 def load_mock_data(json_path: Path = MOCKS_JSON) -> dict:
+    """Load the mock provider fixtures, keyed by company_name."""
     with open(json_path, encoding="utf-8") as f:
         return json.load(f)
 
 
 def run(csv_path: Path = COMPANIES_CSV, json_path: Path = MOCKS_JSON) -> list[dict]:
+    """Score every company in `csv_path` against its fixtures in `json_path`.
+
+    Companies with no matching entry in the mock data are scored with an
+    empty record (`{}`), which resolves to `review_reason == "no_sources"`.
+    """
     companies = load_companies(csv_path)
     mock_data = load_mock_data(json_path)
     return [
@@ -278,6 +309,11 @@ CSV_COLUMNS = [
 
 
 def write_outputs(results: list[dict], out_dir: Path) -> None:
+    """Write the full results to output.json and a flattened view to output.csv.
+
+    output.csv drops the nested `provenance` field and joins `source`
+    (a list) into a `;`-separated string for spreadsheet friendliness.
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
 
     with open(out_dir / "output.json", "w", encoding="utf-8") as f:
