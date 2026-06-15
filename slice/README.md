@@ -7,13 +7,32 @@ answers in [`../challenge/CLARIFICATIONS.md`](../challenge/CLARIFICATIONS.md).
 
 ## Run it
 
+Requires Python 3.10+.
+
 ```bash
 cd slice
-python contact_finder.py   # writes output.json and output.csv
-python -m pytest -v        # 24 tests
+pip install -r requirements.txt   # only dependency: pytest (for the test suite)
+python contact_finder.py          # writes output.json and output.csv, prints a summary
 ```
 
-No external dependencies beyond `pytest` (stdlib only for the pipeline itself).
+The pipeline itself (`contact_finder.py`) is stdlib-only; `requirements.txt`
+is needed only to run the tests.
+
+## Testing
+
+```bash
+cd slice
+python -m pytest -v
+```
+
+24 tests covering: name-matching/normalization helpers, identity resolution
+(registry/listing, conflicts, Registered Agent), contact resolution
+(enrichment vs. listing-phone fallback, conflict isolation), agreement-bonus
+scoring, end-to-end scoring against real mock fixtures (high-confidence
+agreement, weak single-source, identity conflict, Registered-Agent-only,
+company absent from mocks), and threshold-gate invariants (every row below
+70 is blanked + flagged, every emitted contact has provenance) across the
+full 30-row dataset.
 
 ## What it does
 
