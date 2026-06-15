@@ -1,0 +1,625 @@
+[
+  {
+    "company_name": "Cedar Ridge Plumbing LLC",
+    "mailing_address": "4821 Maple Ave, Lincoln, NE 68504",
+    "contact_name": "Daniel Ortega",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "d.ortega@cedarridgeplumbing.com",
+    "confidence_score": 85,
+    "source": [
+      "enrichment",
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/ne/cedar-ridge-plumbing"
+      ],
+      "contact_role": [
+        "mock://registry/ne/cedar-ridge-plumbing"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/cedar-ridge-plumbing"
+      ]
+    }
+  },
+  {
+    "company_name": "Bayview Auto Repair",
+    "mailing_address": "129 Harbor St, Tacoma, WA 98402",
+    "contact_name": "Karen Liu",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "karen@bayviewauto.com",
+    "confidence_score": 78,
+    "source": [
+      "enrichment",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/wa/bayview-auto-repair"
+      ],
+      "contact_role": [
+        "mock://registry/wa/bayview-auto-repair"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/bayview-auto-repair"
+      ]
+    }
+  },
+  {
+    "company_name": "Sunbelt Roofing Co",
+    "mailing_address": "7714 Desert Bloom Rd, Mesa, AZ 85207",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 35,
+    "source": [
+      "enrichment",
+      "listing"
+    ],
+    "needs_human_review": true,
+    "review_reason": "low_confidence",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Riverside Print & Sign",
+    "mailing_address": "302 W 3rd St, Davenport, IA 52801",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 12,
+    "source": [
+      "enrichment"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Magnolia Family Dental",
+    "mailing_address": "1188 Peachtree Ln, Macon, GA 31201",
+    "contact_name": "Dr. Patel",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 30,
+    "source": [
+      "listing"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://listing/magnolia-family-dental"
+      ],
+      "contact_role": [
+        "mock://listing/magnolia-family-dental"
+      ],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Northgate HVAC Services",
+    "mailing_address": "56 Industrial Pkwy, Akron, OH 44310",
+    "contact_name": "Thomas Reed",
+    "contact_role": "Registered Agent",
+    "contact_email_or_phone": "",
+    "confidence_score": 15,
+    "source": [
+      "registry"
+    ],
+    "needs_human_review": true,
+    "review_reason": "no_contact_method",
+    "notes": "registry match is a Registered Agent -- often a third-party filing service, not company staff.",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/oh/northgate-hvac"
+      ],
+      "contact_role": [
+        "mock://registry/oh/northgate-hvac"
+      ],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Pioneer Landscaping Inc",
+    "mailing_address": "940 Prairie View Dr, Boise, ID 83704",
+    "contact_name": "Maria Gomez",
+    "contact_role": "President",
+    "contact_email_or_phone": "maria@pioneerlandscaping.com",
+    "confidence_score": 86,
+    "source": [
+      "enrichment",
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/id/pioneer-landscaping"
+      ],
+      "contact_role": [
+        "mock://registry/id/pioneer-landscaping"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/pioneer-landscaping"
+      ]
+    }
+  },
+  {
+    "company_name": "Harbor Light Electric",
+    "mailing_address": "22 Dockside Ave, New Bedford, MA 02740",
+    "contact_name": "Sean Murphy",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "",
+    "confidence_score": 65,
+    "source": [
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": true,
+    "review_reason": "low_confidence",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/ma/harbor-light-electric"
+      ],
+      "contact_role": [
+        "mock://registry/ma/harbor-light-electric"
+      ],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Summit Pest Control",
+    "mailing_address": "6310 Highland Blvd, Reno, NV 89506",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 11,
+    "source": [
+      "enrichment"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Greenfield Catering Group",
+    "mailing_address": "415 Orchard St, Springfield, MO 65806",
+    "contact_name": "Angela Brooks",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "a.brooks@greenfieldcater.com",
+    "confidence_score": 77,
+    "source": [
+      "enrichment",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/mo/greenfield-catering"
+      ],
+      "contact_role": [
+        "mock://registry/mo/greenfield-catering"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/greenfield-catering"
+      ]
+    }
+  },
+  {
+    "company_name": "Lakeside Auto Glass",
+    "mailing_address": "88 Lakeshore Dr, Madison, WI 53703",
+    "contact_name": "Jeff",
+    "contact_role": "Manager",
+    "contact_email_or_phone": "",
+    "confidence_score": 52,
+    "source": [
+      "enrichment",
+      "listing"
+    ],
+    "needs_human_review": true,
+    "review_reason": "low_confidence",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://listing/lakeside-auto-glass"
+      ],
+      "contact_role": [
+        "mock://listing/lakeside-auto-glass"
+      ],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Ironclad Welding Shop",
+    "mailing_address": "1701 Foundry Rd, Pittsburgh, PA 15201",
+    "contact_name": "Robert Kowalski",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "bob@ironcladweld.com",
+    "confidence_score": 84,
+    "source": [
+      "enrichment",
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/pa/ironclad-welding"
+      ],
+      "contact_role": [
+        "mock://registry/pa/ironclad-welding"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/ironclad-welding"
+      ]
+    }
+  },
+  {
+    "company_name": "Coastal Breeze Pool Service",
+    "mailing_address": "233 Seagrape Way, Sarasota, FL 34236",
+    "contact_name": "Tina Alvarez",
+    "contact_role": "Manager",
+    "contact_email_or_phone": "",
+    "confidence_score": 20,
+    "source": [
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": true,
+    "review_reason": "identity_conflict",
+    "notes": "listing names a different person (Marcus Webb) at mock://listing/coastal-breeze-pool; not used as the contact.",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/fl/coastal-breeze-pool"
+      ],
+      "contact_role": [
+        "mock://registry/fl/coastal-breeze-pool"
+      ],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Redwood Cabinetry",
+    "mailing_address": "509 Timber Ct, Eugene, OR 97401",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Anchor Marine Supply",
+    "mailing_address": "17 Wharf St, Portland, ME 04101",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 19,
+    "source": [
+      "enrichment"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Desert Sky Solar",
+    "mailing_address": "4400 Sunray Dr, Tucson, AZ 85706",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Brookside Veterinary Clinic",
+    "mailing_address": "760 Willow Bend, Chattanooga, TN 37402",
+    "contact_name": "Dr. Emily Hart",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "emily.hart@brooksidevet.com",
+    "confidence_score": 86,
+    "source": [
+      "enrichment",
+      "listing",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/tn/brookside-vet"
+      ],
+      "contact_role": [
+        "mock://registry/tn/brookside-vet"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/brookside-vet"
+      ]
+    }
+  },
+  {
+    "company_name": "Cornerstone Masonry",
+    "mailing_address": "311 Brickyard Ln, Wichita, KS 67202",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Velvet Thread Tailoring",
+    "mailing_address": "55 Garment Row, Allentown, PA 18101",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Frontier Towing & Recovery",
+    "mailing_address": "9201 Range Rd, Cheyenne, WY 82001",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Blue Heron Landscaping",
+    "mailing_address": "144 Marsh View Dr, Charleston, SC 29401",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Ace Mobile Locksmith",
+    "mailing_address": "27 Keystone Ave, Toledo, OH 43604",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Maple Leaf Bakery",
+    "mailing_address": "612 Baker St, Burlington, VT 05401",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 10,
+    "source": [
+      "listing"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Granite Peak Surveying",
+    "mailing_address": "800 Summit Rd, Helena, MT 59601",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Tidewater Plumbing & Heating",
+    "mailing_address": "45 Estuary Ln, Norfolk, VA 23510",
+    "contact_name": "George Whitfield",
+    "contact_role": "Owner",
+    "contact_email_or_phone": "g.whitfield@tidewaterph.com",
+    "confidence_score": 78,
+    "source": [
+      "enrichment",
+      "registry"
+    ],
+    "needs_human_review": false,
+    "review_reason": "",
+    "notes": "",
+    "provenance": {
+      "contact_name": [
+        "mock://registry/va/tidewater-plumbing"
+      ],
+      "contact_role": [
+        "mock://registry/va/tidewater-plumbing"
+      ],
+      "contact_email_or_phone": [
+        "mock://enrichment/tidewater-plumbing"
+      ]
+    }
+  },
+  {
+    "company_name": "Sierra Vista Auto Body",
+    "mailing_address": "3320 Foothill Dr, Fresno, CA 93720",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Hometown Hardware Co",
+    "mailing_address": "19 Main St, Dubuque, IA 52001",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 13,
+    "source": [
+      "enrichment"
+    ],
+    "needs_human_review": true,
+    "review_reason": "single_weak_source",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Evergreen Tree Care",
+    "mailing_address": "507 Cedar Hollow, Spokane, WA 99201",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Liberty Sign & Awning",
+    "mailing_address": "1290 Freedom Blvd, Allen, TX 75002",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  },
+  {
+    "company_name": "Crescent Moon Cafe",
+    "mailing_address": "73 Bourbon Walk, Lafayette, LA 70501",
+    "contact_name": "",
+    "contact_role": "",
+    "contact_email_or_phone": "",
+    "confidence_score": 0,
+    "source": [],
+    "needs_human_review": true,
+    "review_reason": "no_sources",
+    "notes": "",
+    "provenance": {
+      "contact_name": [],
+      "contact_role": [],
+      "contact_email_or_phone": []
+    }
+  }
+]
