@@ -86,3 +86,8 @@ observability.
   `PLAN.md`/`ABOUT.md` should live (repo root vs. `challenge/`) — minor, but
   a one-line "place these at the repo root" would remove a small guess for
   candidates.
+
+
+### How I start a fresh task?
+
+Video Link: https://drive.google.com/file/d/1J9CO1ArfxQ4cxVw0GslRLCZfzptgiK8m/view?usp=sharing
